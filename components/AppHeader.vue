@@ -1,103 +1,158 @@
 <template>
   <div class="header">
-    <div class="header-content">
-      <div class="header-title">
-        <svg width="32" height="32" t="1753179095637" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5892"><path d="M640 119.68l-256.64 96L96 122.24v674.56L384 904.32l256.64-96 287.36 93.44V227.2L640 119.68z m224 152.32v263.04l-399.36 49.28-46.08-313.6L640 187.52l224 84.48z m-704 200.32l214.4-60.16 26.24 180.48-240.64 29.44V472.32z m194.56-199.04l10.88 74.88-205.44 57.6V210.56l194.56 62.72zM160 752v-65.28l250.24-31.36 23.68 161.92-49.92 19.2-224-84.48z m479.36-11.52l-144 53.76-21.76-146.56 390.4-48.64v214.4l-224.64-72.96z" fill="#ffffff" p-id="5893"></path><path d="M601.6 422.4l51.2 51.2 51.2-51.2c28.16-28.16 28.16-74.24 0-102.4s-74.24-28.16-102.4 0-28.16 74.24 0 102.4z" fill="#ffffff" p-id="5894"></path></svg>
-        炒鸡Map
+    <div class="header-left">
+      <div class="header-brand">
+        <svg width="24" height="24" viewBox="0 0 1024 1024" class="logo-icon"><path d="M640 119.68l-256.64 96L96 122.24v674.56L384 904.32l256.64-96 287.36 93.44V227.2L640 119.68z m224 152.32v263.04l-399.36 49.28-46.08-313.6L640 187.52l224 84.48z m-704 200.32l214.4-60.16 26.24 180.48-240.64 29.44V472.32z m194.56-199.04l10.88 74.88-205.44 57.6V210.56l194.56 62.72zM160 752v-65.28l250.24-31.36 23.68 161.92-49.92 19.2-224-84.48z m479.36-11.52l-144 53.76-21.76-146.56 390.4-48.64v214.4l-224.64-72.96z" fill="#ffffff"></path></svg>
+        <span class="brand-text">SuperMap Pro</span>
       </div>
-      <div class="toolbar">
-        <div class="tool-group">
-          <button class="tool-btn" :class="{ active: currentTool === 'select' }" @click="$emit('setTool', 'select')" title="选择工具"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3L10.07 19.97L12.58 12.58L19.97 10.07L3 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></button>
-          <button class="tool-btn" :class="{ active: currentTool === 'box-select' }" @click="$emit('setTool', 'box-select')" title="框选工具">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3H21V21H3V3Z" stroke="currentColor" stroke-width="2" stroke-dasharray="4 2"/></svg>
-          </button>
-          <button class="tool-btn" :class="{ active: currentTool === 'point' }" @click="$emit('setTool', 'point')" title="绘制点"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4" fill="currentColor"/></svg></button>
-          <button class="tool-btn" :class="{ active: currentTool === 'polyline' }" @click="$emit('setTool', 'polyline')" title="绘制线"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12L7 4L13 14L17 6L21 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></button>
-          <button class="tool-btn" :class="{ active: currentTool === 'polygon' }" @click="$emit('setTool', 'polygon')" title="绘制面"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 7L3 17L12 22L21 17V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></button>
-          <button class="tool-btn" :class="{ active: currentTool === 'ranging' }" @click="$emit('setTool', 'ranging')" title="测距工具"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12L7 8L13 14L21 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="3" cy="12" r="2" fill="currentColor"/><circle cx="21" cy="6" r="2" fill="currentColor"/></svg></button>
-        </div>
-        
-        <div class="tool-group">
-          <button class="tool-btn" title="导入表格"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 11V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14L12 17L15 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>导入</span><input type="file" @change="$emit('importFile', $event)" accept=".xlsx,.xls,.csv" /></button>
-          <button class="tool-btn" @click="$emit('exportExcel')" title="导出表格"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 17V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14L12 11L15 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>导出</span></button>
-          <button class="tool-btn" @click="$emit('openCloudPanel')" title="云端保存/读取"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><polyline points="16 16 12 12 8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline></svg><span>云端</span></button>
-          
-          <button class="tool-btn" @click="$emit('generateShareLink')" title="生成分享链接">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 8C19.6569 8 21 6.65685 21 5C21 3.34315 19.6569 2 18 2C16.3431 2 15 3.34315 15 5C15 6.65685 16.3431 8 18 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 15C7.65685 15 9 13.6569 9 12C9 10.3431 7.65685 9 6 9C4.34315 9 3 10.3431 3 12C3 13.6569 4.34315 15 6 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 22C19.6569 22 21 20.6569 21 19C21 17.3431 19.6569 16 18 16C16.3431 16 15 17.3431 15 19C15 20.6569 16.3431 22 18 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.59003 13.51L15.42 17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.41 6.51001L8.59003 10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>分享</span>
-          </button>
-          
-          <NuxtLink to="/notes" class="tool-btn" title="打开笔记管理">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 17H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            <span>笔记</span>
-          </NuxtLink>
-          </div>
-        <div class="tool-group">
-          <button class="tool-btn" @click="$emit('toggleMapStyle')" title="切换底图"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35a2 2 0 0 1-1.35-.5l-7.2-5.4A2 2 0 0 1 3 14V8a2 2 0 0 1 1.45-1.9L10.65 2.5a2 2 0 0 1 2.7 0L19.55 6.1A2 2 0 0 1 21 8v6a2 2 0 0 1-1.45 1.9l-7.2 5.4a2 2 0 0 1-1.35.45z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><path d="M12 21.35V16M19.55 6.1L12 11.35M4.45 6.1L12 11.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>影像</span></button>
-          <button class="tool-btn" @click="$emit('saveImage')" title="保存为图片"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 8 12 3 7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>图片</span></button>
-          <button class="tool-btn" @click="$emit('clearAll')" title="清除所有"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C4.21071 21.0391 4 20.5304 4 20V6H19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>清除</span></button>
-          <button class="tool-btn" @click="$emit('toggleLabels')" title="显示/隐藏标签"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 12S5 4 12 4S23 12 23 12S19 20 12 20S1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>标签</span></button>
-        </div>
-        
-        <div class="tool-group user-actions">
-          <button class="tool-btn logout-btn" @click="handleLogout" title="登出账户">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-        </div>
+      
+      <div class="tool-group drawing-tools">
+        <button class="tool-btn" :class="{ active: currentTool === 'select' }" @click="$emit('setTool', 'select')" title="选择要素 (Select)">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7 2l12 11.2-5.8.5 3.3 7.3-2.2.9-3.2-7.4-4.4 4.6z"/></svg>
+          <span>选择</span>
+        </button>
+        <div class="divider"></div>
+        <button class="tool-btn" :class="{ active: currentTool === 'point' }" @click="$emit('setTool', 'point')" title="绘制点 (Point)">
+          <svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="5" fill="currentColor"/></svg>
+          <span>点</span>
+        </button>
+        <button class="tool-btn" :class="{ active: currentTool === 'polyline' }" @click="$emit('setTool', 'polyline')" title="绘制线 (Line)">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M3 17l6-10 6 10 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <span>线</span>
+        </button>
+        <button class="tool-btn" :class="{ active: currentTool === 'polygon' }" @click="$emit('setTool', 'polygon')" title="绘制面 (Polygon)">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2L2 22h20L12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <span>面</span>
+        </button>
+        <button class="tool-btn" :class="{ active: currentTool === 'ranging' }" @click="$emit('setTool', 'ranging')" title="测量距离">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M2 12h20v2H2z" fill="currentColor"/></svg>
+          <span>测距</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="tool-group data-tools">
+        <button class="tool-btn primary" @click="$emit('openImportModal')">
+          <span class="icon">📂</span> 添加数据
+        </button>
+        <button class="tool-btn" @click="$emit('openAnalysis')">
+          <span class="icon">🧰</span> 分析工具
+        </button>
+        <button class="tool-btn" @click="$emit('openCloudPanel')">
+          <span class="icon">☁️</span> 云端存档
+        </button>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="tool-group extra-tools">
+        <button class="icon-btn" @click="$emit('generateShareLink')" title="分享链接">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+        </button>
+        <button class="icon-btn" @click="$emit('saveImage')" title="导出图片">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        </button>
+        <button class="icon-btn" @click="$emit('toggleMapStyle')" title="切换底图">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </button>
+        <NuxtLink to="/notes" class="icon-btn" title="笔记管理" target="_blank">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+        </NuxtLink>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="user-profile" v-if="user">
+        <div class="user-avatar" :title="user.email">{{ user.email?.charAt(0).toUpperCase() }}</div>
+        <button class="logout-btn" @click="handleLogout" title="退出登录">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+        </button>
+      </div>
+      <div v-else>
+        <NuxtLink to="/login" class="login-link">登录</NuxtLink>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useSupabaseClient, navigateTo } from '#imports';
+import { useSupabaseClient, useSupabaseUser, navigateTo } from '#imports';
 
-defineProps({
-  currentTool: String
-});
-
+defineProps({ currentTool: String });
 defineEmits([
-  'setTool', 'importFile', 'exportExcel', 'openCloudPanel', 'generateShareLink',
-  'toggleMapStyle', 'saveImage', 'clearAll', 'toggleLabels'
+  'setTool', 'openImportModal', 'openAnalysis', 'openCloudPanel', 
+  'clearAll', 'generateShareLink', 'saveImage', 'toggleMapStyle'
 ]);
 
 const supabase = useSupabaseClient();
+const user = useSupabaseUser();
 
 const handleLogout = async () => {
-  const { error } = await supabase.auth.signOut();
-  
-  if (error) {
-    console.error('登出失败:', error);
-    alert('登出时发生错误，请稍后重试。');
-  } else {
-    await navigateTo('/login');
+  if (confirm('确定要退出登录吗？')) {
+    const { error } = await supabase.auth.signOut();
+    if (!error) {
+      navigateTo('/login');
+    }
   }
 };
 </script>
 
 <style scoped>
-/* 您在 main.css 中的 .tool-btn 样式
-  将自动应用于 NuxtLink，但我们需要移除 NuxtLink 的
-  默认下划线并确保颜色正确。
-*/
+.header {
+  background: #1f2937; color: #e5e7eb; height: 54px; display: flex; align-items: center; 
+  padding: 0 16px; justify-content: space-between; border-bottom: 1px solid #374151;
+  user-select: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-left, .header-center, .header-right { display: flex; align-items: center; height: 100%; }
+.header-center { flex: 1; justify-content: center; }
+
+.header-brand { display: flex; align-items: center; gap: 8px; margin-right: 24px; font-weight: 700; font-size: 16px; color: white; }
+.logo-icon { filter: drop-shadow(0 0 2px rgba(255,255,255,0.3)); }
+
+.tool-group { display: flex; align-items: center; background: rgba(255,255,255,0.05); border-radius: 6px; padding: 3px; gap: 2px; }
+.tool-group.drawing-tools { margin-right: 12px; }
+.tool-group.extra-tools { background: transparent; }
+
+.divider { width: 1px; height: 20px; background: #4b5563; margin: 0 8px; }
+
+/* 按钮样式 */
 .tool-btn {
-  text-decoration: none;
-  color: white; /* 确保图标和文字是白色的 */
+  display: flex; align-items: center; gap: 6px; padding: 6px 10px; border: none; 
+  background: transparent; color: #9ca3af; border-radius: 4px; cursor: pointer; 
+  font-size: 13px; font-weight: 500; transition: all 0.15s;
 }
+.tool-btn:hover { background: rgba(255,255,255,0.1); color: white; }
+.tool-btn.active { background: #3b82f6; color: white; box-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+.tool-btn.primary { color: #60a5fa; }
+.tool-btn.primary:hover { color: #93c5fd; }
+.tool-btn .icon { font-size: 14px; }
 
-/* 确保 NuxtLink 激活时(如果需要)或悬停时样式正确 */
-.tool-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
+/* 仅图标按钮 */
+.icon-btn {
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  border: none; background: transparent; color: #9ca3af; border-radius: 4px; cursor: pointer;
+  transition: all 0.15s;
 }
+.icon-btn:hover { background: rgba(255,255,255,0.1); color: white; }
 
-.toolbar {
-  display: flex;
-  align-items: center;
-  height: 100%;
+/* 用户区域 */
+.user-profile { display: flex; align-items: center; gap: 8px; }
+.user-avatar {
+  width: 28px; height: 28px; background: #3b82f6; color: white; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold;
 }
+.logout-btn {
+  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+  border: none; background: transparent; color: #ef4444; border-radius: 4px; cursor: pointer;
+}
+.logout-btn:hover { background: rgba(239, 68, 68, 0.15); }
+.login-link { color: #3b82f6; text-decoration: none; font-size: 14px; font-weight: 500; padding: 6px 12px; }
+.login-link:hover { text-decoration: underline; }
 
-.user-actions {
-  margin-left: auto;
+@media (max-width: 1024px) {
+  .tool-btn span { display: none; } /* 小屏隐藏文字 */
+  .header-brand .brand-text { display: none; }
 }
 </style>

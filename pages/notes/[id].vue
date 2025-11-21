@@ -435,14 +435,11 @@ onBeforeUnmount(() => {
 :deep(.tiptap li[data-type="taskItem"] div p) { margin: 0; }
 :deep(.tiptap li[data-type="taskItem"][data-checked="true"] > div) { color: #888; text-decoration: line-through; }
 
-/* --- *** START: 新增链接样式 *** --- */
 :deep(.tiptap a) {
   color: #81a9f1; /* 链接颜色 */
   text-decoration: underline;
   cursor: pointer;
 }
-/* --- *** END: 新增链接样式 *** --- */
-
 .fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
 </style>
